@@ -16,7 +16,7 @@
   "typings": "dist/datetimepicker.module.d.ts",
   "scripts": {
     "prepare": "npm run build",
-    "build": "rimraf dist && tsc"
+    "build": "rimraf dist && ngc"
   },
   "author": "Michał Siatkowski",
   "repository": {
