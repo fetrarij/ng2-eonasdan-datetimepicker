@@ -12,8 +12,8 @@
   ],
   "homepage": "https://github.com/atais/ng2-eonasdan-datetimepicker",
   "license": "MIT",
-  "main": "dist/datetimepicker.module.js",
-  "typings": "dist/datetimepicker.module.d.ts",
+  "main": "dist/datetimepicker.js",
+  "typings": "dist/datetimepicker.d.ts",
   "scripts": {
     "prepare": "npm run build",
     "build": "rimraf dist && ./node_modules/.bin/ngc -p tsconfig.json "
