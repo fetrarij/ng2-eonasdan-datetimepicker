@@ -15,8 +15,13 @@
   "main": "dist/datetimepicker.js",
   "typings": "dist/datetimepicker.d.ts",
   "scripts": {
+    "clean": "rimraf dist && rimraf build",
+    "ngc": "./node_modules/.bin/ngc -p tsconfig.json",
+    "rollup:fesm": "rollup build/datetimepicker.js -o dist/datetimepicker.js -f es",
+    "rollup:umd": "rollup build/datetimepicker.js -o dist/datetimepicker.umd.js --f umd",
+    "copy-metadata": "find build/* -not -name '*.js' -exec cp -t dist {} +",
     "prepare": "npm run build",
-    "build": "rimraf dist && ./node_modules/.bin/ngc -p tsconfig.json "
+    "build": "npm run clean && npm run ngc && npm run rollup:fesm && npm run rollup:umd && npm run copy-metadata && rm -rf build"
   },
   "author": "Michał Siatkowski",
   "repository": {
@@ -36,15 +41,16 @@
     "@angular/platform-browser-dynamic": "4.0.2",
     "rxjs": "^5.0.3",
     "zone.js": ">=0.8.5",
-    "@types/eonasdan-bootstrap-datetimepicker": "^4.17.22",
-    "@types/jquery": "^2.0.33"
+    "rollup": "^0.56.2"
   },
   "dependencies": {
     "bootstrap": "^3.3",
     "eonasdan-bootstrap-datetimepicker": ">=4.17.22 <5.0.0",
+    "jquery": "^1.8.3 || ^2.0",
     "moment": "^2.10",
     "moment-timezone": "^0.4.0",
-    "jquery": "^1.8.3 || ^2.0"
+    "@types/eonasdan-bootstrap-datetimepicker": "^4.17.22",
+    "@types/jquery": "^2.0.33"
   },
   "peerDependencies": {
     "@angular/common": ">=2.0.0",
