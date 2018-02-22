@@ -16,7 +16,7 @@
   "typings": "dist/datetimepicker.module.d.ts",
   "scripts": {
     "prepare": "npm run build",
-    "build": "rimraf dist && ngc"
+    "build": "rimraf dist && ./node_modules/.bin/ngc -p tsconfig.json "
   },
   "author": "Michał Siatkowski",
   "repository": {
@@ -30,6 +30,7 @@
     "typescript": "^2.1.6",
     "@angular/common": "4.0.2",
     "@angular/compiler": "4.0.2",
+    "@angular/compiler-cli": "4.0.2",
     "@angular/core": "4.0.2",
     "@angular/platform-browser": "4.0.2",
     "@angular/platform-browser-dynamic": "4.0.2",
